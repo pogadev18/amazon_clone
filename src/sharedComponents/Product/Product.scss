@@ -1,0 +1,14 @@
+@import '../../assets/styles/variables/index.scss';
+
+.product {
+  display: flex;
+  flex-direction: column;
+  background: $white;
+
+  &__image {
+    max-height: 200px;
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 15px;
+  }
+}
