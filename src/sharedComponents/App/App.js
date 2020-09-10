@@ -1,8 +1,10 @@
 import React from 'react';
 
+import './App.scss';
+
 function App() {
   return (
-    <div className='App'>
+    <div className='app'>
       <h1>AMAZON CLONE</h1>
     </div>
   );
