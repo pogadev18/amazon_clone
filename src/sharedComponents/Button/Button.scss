@@ -1,0 +1,15 @@
+@import '../../assets/styles/variables/colors/index.scss';
+
+.button {
+  transition: all 0.2s;
+  padding: 2px 5px;
+  background: $buttonYellow;
+  border: 1px solid;
+  color: $black;
+  border-color: $orange1 $orange2 $orange3;
+  cursor: pointer;
+
+  &:hover {
+    background: $buttonHover;
+  }
+}

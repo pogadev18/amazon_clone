@@ -1,28 +1,31 @@
 import React from 'react';
 
+import Button from '../Button/Button';
+
 import './Product.scss';
 
-function Product() {
+function Product({ title, imageUrl, imageDesc, price, rating }) {
+  console.log('rating =====>', rating);
   return (
     <article className='product'>
       <section className='product__info'>
-        <h5>The Lean Startup</h5>
+        <h5>{title}</h5>
         <p className='product__price'>
           <small>$</small>
-          <strong>23.99</strong>
+          <strong>{price}</strong>
         </p>
         <section className='product__rating'>
-          <span role='img' aria-label='Star'>
-            ⭐
-          </span>
+          {Array(rating)
+            .fill()
+            .map((_, i) => (
+              <span key={i} role='img' aria-label='Star'>
+                ⭐
+              </span>
+            ))}
         </section>
       </section>
-      <img
-        src='https://images-na.ssl-images-amazon.com/images/I/81-QB7nDh4L.jpg'
-        alt='The Lean Startup'
-        className='product__image'
-      />
-      <button>Add to basket</button>
+      <img src={imageUrl} alt={imageDesc} className='product__image' />
+      <Button className='product__button' text='Add to basket' type='button' />
     </article>
   );
 }
