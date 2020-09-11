@@ -1,0 +1,22 @@
+@import '../../../assets/styles/variables/colors/index.scss';
+
+.subtotal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+  padding: 20px;
+  background-color: $gray1;
+  border: 1px solid $gray2;
+  border-radius: 3px;
+
+  &__gift {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+  }
+
+  &__input {
+    margin-right: 5px;
+  }
+}
