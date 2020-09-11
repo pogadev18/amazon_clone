@@ -5,7 +5,6 @@ import Button from '../Button/Button';
 import './Product.scss';
 
 function Product({ title, imageUrl, imageDesc, price, rating }) {
-  console.log('rating =====>', rating);
   return (
     <article className='product'>
       <section className='product__info'>
