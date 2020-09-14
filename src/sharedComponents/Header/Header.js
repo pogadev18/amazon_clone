@@ -25,10 +25,12 @@ function Header() {
       </section>
 
       <ul className='header__nav'>
-        <li className='header__option'>
-          <span className='header__optionLineOne'>Hello Guest</span>
-          <span className='header__optionLineTwo'>Sign In</span>
-        </li>
+        <Link to='/login'>
+          <li className='header__option'>
+            <span className='header__optionLineOne'>Hello Guest</span>
+            <span className='header__optionLineTwo'>Sign In</span>
+          </li>
+        </Link>
 
         <li className='header__option'>
           <span className='header__optionLineOne'>Returns</span>

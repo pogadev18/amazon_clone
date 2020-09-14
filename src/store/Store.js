@@ -3,7 +3,8 @@ import React, { createContext, useContext, useReducer } from 'react';
 // initial state of the app
 const initialState = {
   basket: [],
-  flashMessage: ''
+  flashMessage: '',
+  user: null
 };
 
 // prepare the data layer
