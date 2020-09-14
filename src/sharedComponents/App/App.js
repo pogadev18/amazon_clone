@@ -17,19 +17,15 @@ import Checkout from '../../pages/Checkout/Checkout';
 import Login from '../../pages/Login/Login';
 
 // State Provider & Main Reducers
-import { StateProvider, useStateValue } from '../../store/Store';
-import { mainReducers } from '../../reducers/mainReducers';
+import { useStateValue } from '../../store/Store';
 
 import './App.scss';
 
 function App() {
-  console.log('useStateValue', useStateValue());
-  const [{ user }, dispatch] = useStateValue();
+  const dispatch = useStateValue()[1];
 
   useEffect(() => {
     auth.onAuthStateChanged(authUser => {
-      console.log('THE USER IS >>>>', authUser);
-
       if (authUser) {
         // the user just logged in / the user was logged in
         dispatch({
@@ -47,29 +43,27 @@ function App() {
   }, [dispatch]);
 
   return (
-    <StateProvider reducer={mainReducers}>
-      <Router>
-        <div className='app'>
-          <FlashMessage />
-          <Switch>
-            <Route exact path='/login'>
-              <Login />
-            </Route>
+    <Router>
+      <div className='app'>
+        <FlashMessage />
+        <Switch>
+          <Route exact path='/login'>
+            <Login />
+          </Route>
 
-            <Route exact path='/checkout'>
-              <Header />
-              <Checkout />
-            </Route>
+          <Route exact path='/checkout'>
+            <Header />
+            <Checkout />
+          </Route>
 
-            <Route exact path='/'>
-              <Header />
-              <Home />
-            </Route>
-            <Redirect to='/' />
-          </Switch>
-        </div>
-      </Router>
-    </StateProvider>
+          <Route exact path='/'>
+            <Header />
+            <Home />
+          </Route>
+          <Redirect to='/' />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
