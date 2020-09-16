@@ -9,12 +9,11 @@ import { auth } from '../../firebase/firebase';
 import './Header.scss';
 
 function Header() {
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{ basket, user }] = useStateValue();
 
   const handleAuth = () => {
     if (user) {
       auth.signOut();
-      // dispatch({ type: 'SET_USER', user: null });
     }
   };
 

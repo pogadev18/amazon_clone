@@ -1,0 +1,33 @@
+@import '../../assets/styles/variables/colors/index.scss';
+
+.payment {
+  background-color: $white;
+
+  &__container > h1 {
+    text-align: center;
+    padding: 10px;
+    background-color: $rgbgray;
+    border-bottom: 1px solid $gray3;
+
+    > a {
+      text-decoration: none;
+    }
+  }
+
+  &__section {
+    display: flex;
+    padding: 20px;
+    margin: 0 20px;
+    border-bottom: 1px solid $gray3;
+  }
+
+  &__title {
+    flex: 0.2;
+  }
+
+  &__address,
+  &__items,
+  &__details {
+    flex: 0.8;
+  }
+}
