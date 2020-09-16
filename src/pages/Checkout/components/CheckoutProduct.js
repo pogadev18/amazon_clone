@@ -39,8 +39,9 @@ function CheckoutProduct({ id, imageUrl, title, price, rating }) {
           onClick={removeFromBasket}
           className='checkoutProduct__button'
           type='button'
-          text='Remove from basket'
-        />
+        >
+          Remove from basket
+        </Button>
       </section>
     </section>
   );

@@ -35,9 +35,10 @@ function Subtotal() {
       <Button
         className='subtotal__button'
         type='button'
-        text='Proceed to Checkout'
         onClick={e => history.push('/payment')}
-      />
+      >
+        Proceed to Checkout
+      </Button>
     </section>
   );
 }
