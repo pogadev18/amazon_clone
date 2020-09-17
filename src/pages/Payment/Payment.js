@@ -4,6 +4,8 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
 
 import axios from '../../axios/axios';
+import { db } from '../../firebase/firebase';
+
 import Button from '../../sharedComponents/Button/Button';
 import CheckoutProduct from '../Checkout/components/CheckoutProduct';
 import { useStateValue } from '../../store/Store';
@@ -11,8 +13,10 @@ import { getBasketTotal } from '../../reducers/basketReducer';
 
 import './Payment.scss';
 
+// youtube video left at 3:28:26
+
 function Payment() {
-  const [{ basket, user }] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
 
   // local states
   const [error, setError] = useState(null);
@@ -56,9 +60,24 @@ function Payment() {
       })
       .then(({ paymentIntent }) => {
         // paymentIntent = paymentConfirmation
+
+        db.collection('users')
+          .doc(user?.uid)
+          .collection('orders')
+          .doc(paymentIntent.id)
+          .set({
+            basket: basket,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created
+          });
+
         setSucceeded(true);
         setError(null);
         setProcessing(false);
+
+        dispatch({
+          type: 'EMPTY_BASKET'
+        });
 
         history.replace('/orders');
       });
@@ -125,7 +144,10 @@ function Payment() {
                   thousandSeparator={true}
                   prefix={'$'}
                 />
-                <Button isDisabled={processing || disabled || succeeded}>
+                <Button
+                  className='payment__button'
+                  isDisabled={processing || disabled || succeeded}
+                >
                   <span>{processing ? <p>Processing</p> : 'Buy Now'}</span>
                 </Button>
               </div>

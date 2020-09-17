@@ -43,10 +43,12 @@ function Header() {
           </li>
         </Link>
 
-        <li className='header__option'>
-          <span className='header__optionLineOne'>Returns</span>
-          <span className='header__optionLineTwo'>& Orders</span>
-        </li>
+        <Link to='/orders'>
+          <li className='header__option'>
+            <span className='header__optionLineOne'>Returns</span>
+            <span className='header__optionLineTwo'>& Orders</span>
+          </li>
+        </Link>
 
         <li className='header__option'>
           <span className='header__optionLineOne'>Your</span>

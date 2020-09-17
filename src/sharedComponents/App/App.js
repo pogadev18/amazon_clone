@@ -18,6 +18,7 @@ import Home from '../../pages/Home/Home';
 import Checkout from '../../pages/Checkout/Checkout';
 import Login from '../../pages/Login/Login';
 import Payment from '../../pages/Payment/Payment';
+import Orders from '../../pages/Orders/Orders';
 
 // State Provider & Main Reducers
 import { useStateValue } from '../../store/Store';
@@ -61,6 +62,11 @@ function App() {
           <Route exact path='/checkout'>
             <Header />
             <Checkout />
+          </Route>
+
+          <Route exact path='/orders'>
+            <Header />
+            <Orders />
           </Route>
 
           <Route exact path='/payment'>
