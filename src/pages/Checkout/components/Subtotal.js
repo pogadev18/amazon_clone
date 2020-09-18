@@ -10,7 +10,7 @@ import './Subtotal.scss';
 
 function Subtotal() {
   const history = useHistory();
-  const [{ basket }] = useStateValue();
+  const [{ basket, user }] = useStateValue();
 
   return (
     <section className='subtotal'>
@@ -32,13 +32,21 @@ function Subtotal() {
         thousandSeparator={true}
         prefix={'$'}
       />
-      <Button
-        className='subtotal__button'
-        type='button'
-        onClick={e => history.push('/payment')}
-      >
-        Proceed to Checkout
-      </Button>
+      {user ? (
+        <Button
+          className='subtotal__button'
+          type='button'
+          onClick={e => history.push('/payment')}
+        >
+          Proceed to checkout
+        </Button>
+      ) : (
+        <p>
+          <strong>
+            Please login / signin in order to complete your purchase!
+          </strong>
+        </p>
+      )}
     </section>
   );
 }

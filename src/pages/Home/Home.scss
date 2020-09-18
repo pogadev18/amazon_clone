@@ -10,11 +10,19 @@
     z-index: -1;
     margin-bottom: -150px;
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+
+    @media screen and (max-width: 767px) {
+      margin-bottom: 0;
+    }
   }
 
   &__row {
     display: flex;
     z-index: 1;
     margin: 0 5px;
+
+    @media screen and (max-width: 992px) {
+      flex-wrap: wrap;
+    }
   }
 }

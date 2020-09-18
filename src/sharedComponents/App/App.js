@@ -19,6 +19,7 @@ import Checkout from '../../pages/Checkout/Checkout';
 import Login from '../../pages/Login/Login';
 import Payment from '../../pages/Payment/Payment';
 import Orders from '../../pages/Orders/Orders';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 // State Provider & Main Reducers
 import { useStateValue } from '../../store/Store';
@@ -69,12 +70,12 @@ function App() {
             <Orders />
           </Route>
 
-          <Route exact path='/payment'>
+          <PrivateRoute path='/payment'>
             <Header />
             <Elements stripe={promise}>
               <Payment />
             </Elements>
-          </Route>
+          </PrivateRoute>
 
           <Route exact path='/'>
             <Header />
