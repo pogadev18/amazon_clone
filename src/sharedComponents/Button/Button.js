@@ -2,10 +2,15 @@ import React from 'react';
 
 import './Button.scss';
 
-function Button({ text, type, className, onClick }) {
+function Button({ children, type, className, onClick, isDisabled }) {
   return (
-    <button onClick={onClick} className={`${className} button`} type={type}>
-      {text}
+    <button
+      disabled={isDisabled}
+      onClick={onClick}
+      className={`${className} button`}
+      type={type}
+    >
+      {children}
     </button>
   );
 }

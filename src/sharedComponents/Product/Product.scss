@@ -12,10 +12,24 @@
   min-width: 100px;
   background: $white;
   z-index: 1;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.01);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  @media screen and (max-width: 767px) {
+    max-height: 100%;
+  }
 
   &__info {
     height: 100px;
     margin-bottom: 15px;
+
+    @media screen and (max-width: 767px) {
+      height: auto;
+    }
   }
 
   &__price {
@@ -27,6 +41,10 @@
     width: 100%;
     object-fit: contain;
     margin-bottom: 15px;
+
+    @media screen and (max-width: 460px) {
+      margin-top: 10px;
+    }
   }
 
   &__button {

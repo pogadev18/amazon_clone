@@ -6,14 +6,28 @@
   background-color: $white;
   height: max-content;
 
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
+  }
+
   &__ad {
     width: 100%;
     margin-bottom: 10px;
+
+    @media screen and (max-width: 900px) {
+      display: none;
+    }
   }
 
   &__title {
     margin-right: 10px;
     padding: 10px;
     border-bottom: 1px solid lightgray;
+  }
+
+  &__right {
+    @media screen and (max-width: 900px) {
+      order: -1;
+    }
   }
 }

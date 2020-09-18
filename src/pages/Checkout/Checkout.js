@@ -1,5 +1,4 @@
 import React from 'react';
-import FlipMove from 'react-flip-move';
 
 import Subtotal from './components/Subtotal';
 import CheckoutProduct from './components/CheckoutProduct';

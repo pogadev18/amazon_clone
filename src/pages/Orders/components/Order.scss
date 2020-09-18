@@ -1,0 +1,29 @@
+@import '../../../assets/styles/variables/colors/index.scss';
+
+.order {
+  padding: 40px;
+  margin: 20px 0;
+  background: $white;
+  position: relative;
+  border: 1px solid lightgray;
+
+  @media screen and (max-width: 767px) {
+    padding: 15px;
+  }
+
+  &__id {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    font-weight: 700;
+
+    @media screen and (max-width: 767px) {
+      position: static;
+    }
+  }
+
+  &__total {
+    font-weight: 700;
+    text-align: right;
+  }
+}

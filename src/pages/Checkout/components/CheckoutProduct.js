@@ -5,9 +5,8 @@ import Button from '../../../sharedComponents/Button/Button';
 
 import './CheckoutProduct.scss';
 
-function CheckoutProduct({ id, imageUrl, title, price, rating }) {
+function CheckoutProduct({ id, imageUrl, title, price, rating, hideButton }) {
   const [{ basket }, dispatch] = useStateValue();
-  console.log(basket);
 
   const removeFromBasket = () => {
     dispatch({
@@ -35,12 +34,15 @@ function CheckoutProduct({ id, imageUrl, title, price, rating }) {
               </span>
             ))}
         </section>
-        <Button
-          onClick={removeFromBasket}
-          className='checkoutProduct__button'
-          type='button'
-          text='Remove from basket'
-        />
+        {!hideButton && (
+          <Button
+            onClick={removeFromBasket}
+            className='checkoutProduct__button'
+            type='button'
+          >
+            Remove from basket
+          </Button>
+        )}
       </section>
     </section>
   );

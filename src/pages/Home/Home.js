@@ -1,19 +1,26 @@
 import React from 'react';
+import { useSpring, animated } from 'react-spring';
 
 import Product from '../../sharedComponents/Product/Product';
 
 import './Home.scss';
 
 function Home() {
+  const style = useSpring({
+    to: { opacity: 1, marginTop: 0 },
+    from: { opacity: 0, marginTop: -500 }
+  });
+
   return (
     <section className='home'>
       <section className='home__container'>
-        <img
-          src='https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg?fbclid=IwAR1j5lBdNgn0v2h7GBA14wwQRCPQtKuiXbvskjvfqmnpUu3wx5y-hUdhHa8'
-          alt='Amazon Prime Poster'
-          className='home__image'
-        />
-
+        <animated.div style={style}>
+          <img
+            src='https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg?fbclid=IwAR1j5lBdNgn0v2h7GBA14wwQRCPQtKuiXbvskjvfqmnpUu3wx5y-hUdhHa8'
+            alt='Amazon Prime Poster'
+            className='home__image'
+          />
+        </animated.div>
         <section className='home__row'>
           <Product
             id='21314'

@@ -40,12 +40,9 @@ function Product({ id, title, imageUrl, imageDesc, price, rating }) {
         </section>
       </section>
       <img src={imageUrl} alt={imageDesc} className='product__image' />
-      <Button
-        onClick={addToBasket}
-        className='product__button'
-        text='Add to basket'
-        type='button'
-      />
+      <Button onClick={addToBasket} className='product__button' type='button'>
+        Add to basket
+      </Button>
     </article>
   );
 }

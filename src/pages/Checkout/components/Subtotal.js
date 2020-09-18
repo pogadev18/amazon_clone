@@ -1,5 +1,6 @@
 import React from 'react';
 import CurrencyFormat from 'react-currency-format';
+import { useHistory } from 'react-router-dom';
 
 import { useStateValue } from '../../../store/Store';
 import { getBasketTotal } from '../../../reducers/basketReducer';
@@ -8,7 +9,8 @@ import Button from '../../../sharedComponents/Button/Button';
 import './Subtotal.scss';
 
 function Subtotal() {
-  const [{ basket }] = useStateValue();
+  const history = useHistory();
+  const [{ basket, user }] = useStateValue();
 
   return (
     <section className='subtotal'>
@@ -30,11 +32,21 @@ function Subtotal() {
         thousandSeparator={true}
         prefix={'$'}
       />
-      <Button
-        className='subtotal__button'
-        type='button'
-        text='Proceed to Checkout'
-      />
+      {user ? (
+        <Button
+          className='subtotal__button'
+          type='button'
+          onClick={e => history.push('/payment')}
+        >
+          Proceed to checkout
+        </Button>
+      ) : (
+        <p>
+          <strong>
+            Please login / signin in order to complete your purchase!
+          </strong>
+        </p>
+      )}
     </section>
   );
 }

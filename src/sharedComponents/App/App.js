@@ -5,6 +5,8 @@ import {
   Route,
   Redirect
 } from 'react-router-dom';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 
 // firebase
 import { auth } from '../../firebase/firebase';
@@ -15,11 +17,18 @@ import Header from '../Header/Header';
 import Home from '../../pages/Home/Home';
 import Checkout from '../../pages/Checkout/Checkout';
 import Login from '../../pages/Login/Login';
+import Payment from '../../pages/Payment/Payment';
+import Orders from '../../pages/Orders/Orders';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 // State Provider & Main Reducers
 import { useStateValue } from '../../store/Store';
 
 import './App.scss';
+
+const promise = loadStripe(
+  'pk_test_51HS0S4Lae8dODZwuAkJryTIv3sYYDpG7JvgMJNrSYGyJ19THWzs6er6dAkSaPXcHazNXGTv3eESB9kTZ2f94Sx1c00rtl5aNvT'
+);
 
 function App() {
   const dispatch = useStateValue()[1];
@@ -55,6 +64,18 @@ function App() {
             <Header />
             <Checkout />
           </Route>
+
+          <Route exact path='/orders'>
+            <Header />
+            <Orders />
+          </Route>
+
+          <PrivateRoute path='/payment'>
+            <Header />
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
+          </PrivateRoute>
 
           <Route exact path='/'>
             <Header />

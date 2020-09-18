@@ -9,12 +9,11 @@ import { auth } from '../../firebase/firebase';
 import './Header.scss';
 
 function Header() {
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{ basket, user }] = useStateValue();
 
   const handleAuth = () => {
     if (user) {
       auth.signOut();
-      // dispatch({ type: 'SET_USER', user: null });
     }
   };
 
@@ -44,10 +43,12 @@ function Header() {
           </li>
         </Link>
 
-        <li className='header__option'>
-          <span className='header__optionLineOne'>Returns</span>
-          <span className='header__optionLineTwo'>& Orders</span>
-        </li>
+        <Link to='/orders'>
+          <li className='header__option'>
+            <span className='header__optionLineOne'>Returns</span>
+            <span className='header__optionLineTwo'>& Orders</span>
+          </li>
+        </Link>
 
         <li className='header__option'>
           <span className='header__optionLineOne'>Your</span>

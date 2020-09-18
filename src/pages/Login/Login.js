@@ -79,8 +79,9 @@ function Login() {
             onClick={signIn}
             className='login__signInButton'
             type='submit'
-            text='Sign In'
-          />
+          >
+            Sign In
+          </Button>
         </form>
         <p>
           By signing-in you agree to the AMAZONE CLONE Conditins of Use &amp;
@@ -92,8 +93,9 @@ function Login() {
           onClick={register}
           className='login__registerButton'
           type='submit'
-          text='Create your Amazon Account'
-        />
+        >
+          Create your Amazon Account
+        </Button>
       </section>
     </section>
   );

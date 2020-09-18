@@ -10,6 +10,10 @@
   border: 1px solid $gray2;
   border-radius: 3px;
 
+  @media screen and (max-width: 900px) {
+    width: 100%;
+  }
+
   &__gift {
     display: flex;
     align-items: center;
@@ -18,5 +22,15 @@
 
   &__input {
     margin-right: 5px;
+  }
+
+  &__button {
+    @media screen and (max-width: 900px) {
+      width: 300px;
+    }
+
+    @media screen and (max-width: 460px) {
+      width: 100%;
+    }
   }
 }

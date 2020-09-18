@@ -13,4 +13,9 @@
   &:hover {
     background: $buttonHover;
   }
+
+  &:disabled {
+    background-color: $gray3;
+    pointer-events: none;
+  }
 }
