@@ -79,6 +79,11 @@ function Payment() {
           type: 'EMPTY_BASKET'
         });
 
+        dispatch({
+          type: 'NEW_MESSAGE',
+          value: 'Your order is ready to be shipped!'
+        });
+
         history.replace('/orders');
       });
   };
