@@ -1,4 +1,5 @@
 # Amazon Clone Build
+## Please take into consideration that this project is still work in progress and there is a lot of room for improvement. (i.e: search bar, returns and orders)
 
 ### [LiveSite](https://clone-60d22.web.app/)
 
